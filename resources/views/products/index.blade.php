@@ -7,8 +7,12 @@
 <h1>محصولات فروشگاه</h1>
 @foreach($products as $product)
     <div>
-        <h3>{{$products->name}}</h3>
-        <p>قیمت:{{$products->price}}</p>
+        <h3>
+            <a href="{{ route('products.show',$product->id) }}">
+                {{$product->name}}
+            </a>
+        </h3>
+        <p>قیمت:{{$product->price}}</p>
         <p>موجودی:{{$product->stock}}</p>
         <hr>
     </div>

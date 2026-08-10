@@ -8,6 +8,6 @@
 <p>قیمت: {{ $product->price }} تومان</p>
 <p>توضیحات: {{ $product->description }}</p>
 <p>موجودی: {{ $product->stock }}</p>
-<a href="/products">بازگشت به لیست محصولات</a>
+<a href="{{route('products.index')}}">بازگشت به لیست محصولات</a>
 </body>
 </html>
