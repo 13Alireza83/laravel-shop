@@ -12,6 +12,12 @@
     <h1 class="text-center mb-4">🛒 محصولات فروشگاه</h1>
 
     <div class="row">
+        <form action="{{ route('products.index') }}" method="GET" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="جستجوی محصول..." value="{{ request('search') }}">
+                <button class="btn btn-primary" type="submit">جستجو</button>
+            </div>
+        </form>
         @foreach($products as $product)
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm">
