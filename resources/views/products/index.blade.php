@@ -6,6 +6,9 @@
 </head>
 <body>
 <div class="container mt-5">
+    @extends('layouts.layout')
+    @section('title','لیست محصولات')
+    @section('content')
     <h1 class="text-center mb-4">🛒 محصولات فروشگاه</h1>
 
     <div class="row">
@@ -27,6 +30,7 @@
         @endforeach
     </div>
 </div>
+@endsection
 </body>
 </html>
 
