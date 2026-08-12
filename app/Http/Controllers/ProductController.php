@@ -12,7 +12,7 @@ class ProductController extends Controller
         if ($search){
             $products = Product::where('name', 'like', '%' . $search . '%')->get();
         }else{
-            $products = Product::all();
+            $products = Product::paginate(10);
         }
         return view('products.index',compact('products'));
     }
