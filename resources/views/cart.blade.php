@@ -34,6 +34,14 @@
         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">حذف</button>
                     </form>
+                    <form action="{{route('cart.increase',$id)}}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-sm btn-success">+</button>
+                    </form>
+                    <form action="{{route('cart.decrease',$id)}}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-sm btn-success">-</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
@@ -52,4 +60,3 @@
     @endif
 @endsection
 
-        @endforeach
