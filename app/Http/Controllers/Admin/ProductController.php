@@ -64,7 +64,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $categories = Category::all();
+        return view('admin.products.edit',compact('product','categories'));
     }
 
     /**
@@ -72,7 +74,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::findorFail($id);
+        $product->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('admin.products.index')->with('success', 'محصول با موفقیت ویرایش شد.');
     }
 
     /**
@@ -80,6 +91,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->route('admin.products.index')->with('success', 'محصول با موفقیت حذف شد.');
     }
 }
