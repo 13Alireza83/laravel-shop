@@ -27,7 +27,13 @@
                     <a class="nav-link" href="{{ route('pages.contact') }}">تماس با ما</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cart.index') }}">🛒 سبد خرید</a>
+                    @php
+                        $cart = session()->get('cart', []);
+                        $cartCount = count($cart);
+                    @endphp
+                    <a class="nav-link" href="{{ route('cart.index') }}">
+                        🛒 سبد خرید <span class="badge bg-danger">{{ $cartCount }}</span>
+                    </a>
                 </li>
             </ul>
         </div>
