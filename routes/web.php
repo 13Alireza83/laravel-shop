@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +16,6 @@ Route::get('/contact',[PageController::class,'contact'])->name('pages.contact');
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('products', AdminProductController::class);
 });
+Route::post('/cart/add/{id}',[CartController::class,'add'])->name('cart.add1');
+Route::get('/cart',[CartController::class,'index'])->name('cart.index');
+Route::delete('/cart/remove/{id}',[CartController::class,'remove'])->name('cart.remove');

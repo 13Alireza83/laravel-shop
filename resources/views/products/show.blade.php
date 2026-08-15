@@ -14,6 +14,10 @@
             <p><strong>💰 قیمت:</strong> {{ number_format($product->price) }} تومان</p>
             <p><strong>📦 موجودی:</strong> {{ $product->stock }}</p>
             <p><strong>📝 توضیحات:</strong> {{ $product->description ?? 'توضیحی وارد نشده است.' }}</p>
+            <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-success">➕ افزودن به سبد خرید</button>
+            </form>
             <a href="{{ route('products.index') }}" class="btn btn-secondary mt-3">بازگشت به لیست محصولات</a>
         </div>
     </div>
