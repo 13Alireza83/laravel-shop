@@ -17,6 +17,8 @@ Route::get('/about', [PageController::class, 'about'])->name('pages.about');
 Route::get('/contact', [PageController::class, 'contact'])->name('pages.contact');
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('products', AdminProductController::class);
+    Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
+    Route::put('/orders/{id}/status',[OrderController::class,'updateStatus'])->name('orders.updateStatus');
 });
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');

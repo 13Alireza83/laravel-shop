@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $order->id }}</td>
                 <td>{{ $order->user->name ?? 'نامشخص' }}</td>
-                <td>{{ jalali_date($order->created_at) }}</td>
+                <td>{{ \Morilog\Jalali\jDate::forge($order->created_at)->format('Y/m/d') }}</td>
                 <td>{{ number_format($order->total_price) }} تومان</td>
                 <td>
                     @php
@@ -43,7 +43,16 @@
                         </span>
                 </td>
                 <td>
-                    <a href="#" class="btn btn-sm btn-primary">تغییر وضعیت</a>
+                    <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('PUT')
+                        <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
+                            <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>در انتظار</option>
+                            <option value="processing" {{ $order->status == 'processing' ? 'selected' : '' }}>در حال پردازش</option>
+                            <option value="shipped" {{ $order->status == 'shipped' ? 'selected' : '' }}>ارسال شده</option>
+                            <option value="cancelled" {{ $order->status == 'cancelled' ? 'selected' : '' }}>لغو شده</option>
+                        </select>
+                    </form>
                 </td>
             </tr>
         @endforeach
