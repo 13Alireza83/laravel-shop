@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $order->id }}</td>
                 <td>{{ $order->user->name ?? 'نامشخص' }}</td>
-                <td>{{ \Morilog\Jalali\jDate::forge($order->created_at)->format('Y/m/d') }}</td>
+                <td>{{ $order->created_at->format('Y-m-d H:i') }}</td>
                 <td>{{ number_format($order->total_price) }} تومان</td>
                 <td>
                     @php

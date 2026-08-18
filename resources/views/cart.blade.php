@@ -57,6 +57,10 @@
         <div class="mt-3">
             <a href="{{ route('products.index') }}" class="btn btn-secondary">ادامه خرید</a>
         </div>
+        <form action="{{ route('checkout.store') }}" method="POST" class="mt-3">
+            @csrf
+            <button type="submit" class="btn btn-success">✅ ثبت سفارش</button>
+        </form>
     @endif
 @endsection
 
