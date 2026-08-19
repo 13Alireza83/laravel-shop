@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b27f2a68738a2ac2422352e93a314b6",
+    "content-hash": "88235c6873a00f1a65cbfd3c4d2527f3",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -201,6 +201,65 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "danialzash/laravel-jalali",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danialzash/laravel-jalali.git",
+                "reference": "cbc93ea24c076cbc1317ee88522f88ba1b2c5c5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danialzash/laravel-jalali/zipball/cbc93ea24c076cbc1317ee88522f88ba1b2c5c5f",
+                "reference": "cbc93ea24c076cbc1317ee88522f88ba1b2c5c5f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "morilog/jalali": "^3.5",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^10.0|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Jalali": "Danialzash\\LaravelJalali\\Facades\\Jalali"
+                    },
+                    "providers": [
+                        "Danialzash\\LaravelJalali\\JalaliServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Danialzash\\LaravelJalali\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danial Zash",
+                    "email": "danialzash@gmail.com"
+                }
+            ],
+            "description": "Laravel helpers for Jalali (Shamsi) date formatting",
+            "support": {
+                "issues": "https://github.com/danialzash/laravel-jalali/issues",
+                "source": "https://github.com/danialzash/laravel-jalali/tree/v0.1.0"
+            },
+            "time": "2026-01-08T16:18:42+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
