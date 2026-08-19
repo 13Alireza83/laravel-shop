@@ -61,6 +61,10 @@
             @csrf
             <button type="submit" class="btn btn-success">✅ ثبت سفارش</button>
         </form>
+        <form action="{{ route('payment.process') }}" method="POST" class="mt-3">
+            @csrf
+            <button type="submit" class="btn btn-primary">💳 پرداخت</button>
+        </form>
     @endif
 @endsection
 
