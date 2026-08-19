@@ -48,5 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::post('/payment/process',[PaymentController::class, 'process'])->name('payment.process')->middleware('auth');
+Route::get('/payment/request', [PaymentController::class, 'request'])->name('payment.request')->middleware('auth');
+Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
 
 require __DIR__.'/auth.php';

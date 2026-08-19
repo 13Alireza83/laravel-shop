@@ -61,10 +61,16 @@
             @csrf
             <button type="submit" class="btn btn-success">✅ ثبت سفارش</button>
         </form>
+        <!-- دکمه‌ی پرداخت آزمایشی -->
         <form action="{{ route('payment.process') }}" method="POST" class="mt-3">
             @csrf
-            <button type="submit" class="btn btn-primary">💳 پرداخت</button>
+            <button type="submit" class="btn btn-success">✅ پرداخت آزمایشی</button>
         </form>
+
+        <!-- دکمه‌ی پرداخت واقعی (زرین‌پال) -->
+        <a href="{{ route('payment.request') }}" class="btn btn-primary mt-3">
+            💳 پرداخت با زرین‌پال
+        </a>
     @endif
 @endsection
 

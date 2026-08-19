@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88235c6873a00f1a65cbfd3c4d2527f3",
+    "content-hash": "0e6a78f2ea8ec3b25e5e85d69ae704ca",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1179,6 +1179,73 @@
                 }
             ],
             "time": "2025-02-03T10:55:03+00:00"
+        },
+        {
+            "name": "larapardakht/larapardakht",
+            "version": "V2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheXERC/LaraPardakht.git",
+                "reference": "e3b7312f9616b4bf9a3dfb10e603ac366b670a0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheXERC/LaraPardakht/zipball/e3b7312f9616b4bf9a3dfb10e603ac366b670a0c",
+                "reference": "e3b7312f9616b4bf9a3dfb10e603ac366b670a0c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^11.0|^12.0|^13.0",
+                "illuminate/support": "^11.0|^12.0|^13.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^9.0|^10.0|^11.0",
+                "pestphp/pest": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Payment": "LaraPardakht\\Facades\\Payment"
+                    },
+                    "providers": [
+                        "LaraPardakht\\PaymentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaraPardakht\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Tajik",
+                    "email": "mohammad.mtajik2001@gmail.com"
+                }
+            ],
+            "description": "A modern, extensible payment gateway integration package for Laravel supporting Iranian payment providers.",
+            "keywords": [
+                "gateway",
+                "idpay",
+                "iran",
+                "laravel",
+                "payment",
+                "payment-gateway",
+                "zarinpal",
+                "zibal"
+            ],
+            "support": {
+                "issues": "https://github.com/TheXERC/LaraPardakht/issues",
+                "source": "https://github.com/TheXERC/LaraPardakht/tree/V2.0"
+            },
+            "time": "2026-04-19T11:20:22+00:00"
         },
         {
             "name": "laravel/framework",
