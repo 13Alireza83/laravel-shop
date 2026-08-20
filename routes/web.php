@@ -4,6 +4,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserOrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PageController;
@@ -50,5 +51,6 @@ Route::middleware('auth')->group(function () {
 Route::post('/payment/process',[PaymentController::class, 'process'])->name('payment.process')->middleware('auth');
 Route::get('/payment/request', [PaymentController::class, 'request'])->name('payment.request')->middleware('auth');
 Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
+Route::get('/my-orders',[UserOrderController::class,'index'])->name('user.orders')->middleware('auth');
 
 require __DIR__.'/auth.php';

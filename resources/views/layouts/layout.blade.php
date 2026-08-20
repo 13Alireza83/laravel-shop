@@ -56,6 +56,12 @@
                         <a class="nav-link" href="{{ route('register') }}">ثبت‌نام</a>
                     </li>
                 @endauth
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.orders') }}">📦 سفارشات من</a>
+                    </li>
+                    <!-- بقیه‌ی آیتم‌های کاربر واردشده -->
+                @endauth
             </ul>
         </div>
     </div>
