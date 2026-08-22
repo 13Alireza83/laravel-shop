@@ -22,4 +22,13 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
+    public function approvedReviews(){
+        return $this->hasMany(Review::class)->where('is_approved',true);
+    }
+    public function averageRating(){
+        return $this->approvedReviews()->avg('rating');
+    }
 }

@@ -21,6 +21,84 @@
             <a href="{{ route('products.index') }}" class="btn btn-secondary mt-3">بازگشت به لیست محصولات</a>
         </div>
     </div>
+
+    <!-- ========== نظرات کاربران ========== -->
+    <div class="mt-5">
+        <h3>💬 نظرات کاربران</h3>
+
+        <!-- امتیاز میانگین -->
+        @php
+            $avgRating = $product->averageRating();
+            $ratingCount = $product->approvedReviews()->count();
+        @endphp
+
+        <div class="mb-3">
+            <strong>امتیاز:</strong>
+            @for($i = 1; $i <= 5; $i++)
+                @if($i <= round($avgRating))
+                    ⭐
+                @else
+                    ☆
+                @endif
+            @endfor
+            <span class="text-muted">({{ number_format($avgRating, 1) }} از 5 - {{ $ratingCount }} نظر)</span>
+        </div>
+
+        <!-- لیست نظرات -->
+        @if($ratingCount > 0)
+            <div class="list-group">
+                @foreach($product->approvedReviews as $review)
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <strong>{{ $review->user->name ?? 'کاربر ناشناس' }}</strong>
+                            <span>
+                                @for($i = 1; $i <= 5; $i++)
+                                    @if($i <= $review->rating)
+                                        ⭐
+                                    @else
+                                        ☆
+                                    @endif
+                                @endfor
+                            </span>
+                        </div>
+                        <p class="mb-1">{{ $review->comment }}</p>
+                        <small class="text-muted">{{ $review->created_at->format('Y-m-d') }}</small>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <p class="text-muted">هنوز نظری برای این محصول ثبت نشده است.</p>
+        @endif
+
+        <!-- فرم ثبت نظر -->
+        @auth
+            <div class="mt-4">
+                <h5>ثبت نظر جدید</h5>
+                <form action="{{ route('reviews.store', $product->id) }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label class="form-label">امتیاز</label>
+                        <select name="rating" class="form-control" required>
+                            <option value="5">⭐ ۵ ستاره</option>
+                            <option value="4">⭐ ۴ ستاره</option>
+                            <option value="3">⭐ ۳ ستاره</option>
+                            <option value="2">⭐ ۲ ستاره</option>
+                            <option value="1">⭐ ۱ ستاره</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">نظر شما</label>
+                        <textarea name="comment" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ثبت نظر</button>
+                </form>
+            </div>
+        @else
+            <p class="mt-3">برای ثبت نظر، <a href="{{ route('login') }}">وارد</a> شوید.</p>
+        @endauth
+    </div>
+    <!-- ========== پایان نظرات ========== -->
+
 </div>
 </body>
 </html>

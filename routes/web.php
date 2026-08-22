@@ -52,5 +52,6 @@ Route::post('/payment/process',[PaymentController::class, 'process'])->name('pay
 Route::get('/payment/request', [PaymentController::class, 'request'])->name('payment.request')->middleware('auth');
 Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
 Route::get('/my-orders',[UserOrderController::class,'index'])->name('user.orders')->middleware('auth');
+Route::post('/reviews/{productId}',[\App\Http\Controllers\ReviewController::class,'store'])->name('reviews.store')->middleware('auth');
 
 require __DIR__.'/auth.php';
