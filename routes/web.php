@@ -53,5 +53,7 @@ Route::get('/payment/request', [PaymentController::class, 'request'])->name('pay
 Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
 Route::get('/my-orders',[UserOrderController::class,'index'])->name('user.orders')->middleware('auth');
 Route::post('/reviews/{productId}',[\App\Http\Controllers\ReviewController::class,'store'])->name('reviews.store')->middleware('auth');
+Route::post('/cart/apply-coupon',[CartController::class,'applyCoupon'])->name('cart.applyCoupon')->middleware('auth');
+Route::get('/cart/remove-coupon',[CartController::class,'removeCoupon'])->name('cart.removeCoupon')->middleware('auth');
 
 require __DIR__.'/auth.php';

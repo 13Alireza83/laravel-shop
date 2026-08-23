@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coupon;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -57,5 +58,23 @@ class CartController extends Controller
             session()->put('cart', $cart);
             return redirect()->route('cart.index')->with('success', 'تعداد محصول با موفقیت کاهش یافت.');
         }
+    }
+    public function applyCoupon(Request $request)
+    {
+        $code = $request->coupon_code;
+        $coupon = Coupon::where('code', $code)->first();
+
+        if (!$coupon || !$coupon->isValid()) {
+            return redirect()->back()->with('error', 'کد تخفیف نامعتبر یا منقضی شده است.');
+        }
+
+        session()->put('coupon', $coupon);
+
+        return redirect()->back()->with('success', 'کد تخفیف با موفقیت اعمال شد.');
+    }
+    public function removeCoupon()
+    {
+        session()->forget('coupon');
+        return redirect()->back()->with('success', 'کد تخفیف لغو شد.');
     }
 }
