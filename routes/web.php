@@ -55,5 +55,5 @@ Route::get('/my-orders',[UserOrderController::class,'index'])->name('user.orders
 Route::post('/reviews/{productId}',[\App\Http\Controllers\ReviewController::class,'store'])->name('reviews.store')->middleware('auth');
 Route::post('/cart/apply-coupon',[CartController::class,'applyCoupon'])->name('cart.applyCoupon')->middleware('auth');
 Route::get('/cart/remove-coupon',[CartController::class,'removeCoupon'])->name('cart.removeCoupon')->middleware('auth');
-
+Route::get('/admin',[\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
 require __DIR__.'/auth.php';
