@@ -39,6 +39,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('products', AdminProductController::class);
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
     Route::put('/orders/{id}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
+    Route::get('/reviews',[ReviewController::class,'index'])->name('admin.reviews.index');
+    Route::post('/reviews/{id}/approve',[ReviewController::class,'approve'])->name('admin.reviews.approve');
+    Route::delete('/reviews/{id}',[ReviewController::class, 'destroy'])->name('admin.reviews.destroy');
 });
 
 Route::get('/dashboard', function () {
@@ -58,7 +61,5 @@ Route::post('/reviews/{productId}',[\App\Http\Controllers\ReviewController::clas
 Route::post('/cart/apply-coupon',[CartController::class,'applyCoupon'])->name('cart.applyCoupon')->middleware('auth');
 Route::get('/cart/remove-coupon',[CartController::class,'removeCoupon'])->name('cart.removeCoupon')->middleware('auth');
 Route::get('/admin',[DashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
-Route::get('/reviews',[ReviewController::class,'index'])->name('admin.reviews.index');
-Route::post('/reviews/{id}/approve',[ReviewController::class,'approve'])->name('admin.reviews.approve')->name('admin.reviews.approve');
-Route::delete('/reviews/{id}',[ReviewController::class, 'destroy'])->name('admin.reviews.destroy');
+
 require __DIR__.'/auth.php';
