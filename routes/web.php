@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\PaymentController;
@@ -55,5 +57,8 @@ Route::get('/my-orders',[UserOrderController::class,'index'])->name('user.orders
 Route::post('/reviews/{productId}',[\App\Http\Controllers\ReviewController::class,'store'])->name('reviews.store')->middleware('auth');
 Route::post('/cart/apply-coupon',[CartController::class,'applyCoupon'])->name('cart.applyCoupon')->middleware('auth');
 Route::get('/cart/remove-coupon',[CartController::class,'removeCoupon'])->name('cart.removeCoupon')->middleware('auth');
-Route::get('/admin',[\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
+Route::get('/admin',[DashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
+Route::get('/reviews',[ReviewController::class,'index'])->name('admin.reviews.index');
+Route::post('/reviews/{id}/approve',[ReviewController::class,'approve'])->name('admin.reviews.approve')->name('admin.reviews.approve');
+Route::delete('/reviews/{id}',[ReviewController::class, 'destroy'])->name('admin.reviews.destroy');
 require __DIR__.'/auth.php';
