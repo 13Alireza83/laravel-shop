@@ -39,16 +39,26 @@ class ProductController extends Controller
             'description' => 'nullable|string',
         ]);
         $category= Category::first();
-        Product::create([
+        $product = Product::create([
             'name' => $request->name,
             'slug' => $request->slug,
             'price' => $request->price,
             'stock' => $request->stock,
             'description' => $request->description,
             'is_active' => true,
-            'category_id'=>$category->id,
+            'category_id' => $category->id,
         ]);
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('products', 'public');
+                $product->images()->create([
+                    'image_path' => $path,
+                    'is_primary' => false,
+                ]);
+            }
+        }
         return redirect()->route('admin.products.index')->with('success', 'محصول با موفقیت افزوده شد.');
+
     }
 
     /**

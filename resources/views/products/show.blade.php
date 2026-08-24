@@ -98,6 +98,21 @@
         @endauth
     </div>
     <!-- ========== پایان نظرات ========== -->
+    <!-- گالری تصاویر -->
+    @if($product->images->count() > 0)
+        <div class="mt-4">
+            <h5>🖼️ گالری تصاویر</h5>
+            <div class="row">
+                @foreach($product->images as $image)
+                    <div class="col-md-3 mb-3">
+                        <img src="{{ asset('storage/' . $image->image_path) }}"
+                             class="img-fluid img-thumbnail"
+                             alt="{{ $product->name }}">
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
 
 </div>
 </body>

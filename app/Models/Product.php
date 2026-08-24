@@ -31,4 +31,7 @@ class Product extends Model
     public function averageRating(){
         return $this->approvedReviews()->avg('rating');
     }
+    public function images(){
+        return $this->hasMany(ProductImage::class);
+    }
 }
