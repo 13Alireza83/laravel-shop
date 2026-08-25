@@ -39,9 +39,10 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('products', AdminProductController::class);
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
     Route::put('/orders/{id}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
-    Route::get('/reviews',[ReviewController::class,'index'])->name('admin.reviews.index');
-    Route::post('/reviews/{id}/approve',[ReviewController::class,'approve'])->name('admin.reviews.approve');
-    Route::delete('/reviews/{id}',[ReviewController::class, 'destroy'])->name('admin.reviews.destroy');
+
+    Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+    Route::post('/reviews/{id}/approve', [ReviewController::class, 'approve'])->name('reviews.approve');
+    Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 });
 
 Route::get('/dashboard', function () {
