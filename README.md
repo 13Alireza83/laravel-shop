@@ -18,6 +18,7 @@
 - ✅ **داشبورد ادمین** با آمار فروش
 - ✅ **پرداخت آزمایشی** (بدون درگاه)
 - ✅ **تاریخ شمسی** (با پکیج jalali)
+- ✅ **رابط کاربری زیبا** با بوت‌استرپ
 
 ---
 
@@ -81,76 +82,12 @@ php artisan serve
 
 ---
 
-## 📸 تصاویر
+## 📸 تصاویر پروژه
 
-### صفحه اصلی
-![صفحه اصلی]({{ asset('images/screenshots/home.png') }})
-
-### مدیریت محصولات
-![مدیریت محصولات]({{ asset('images/screenshots/admin-products.png') }})
-
-### سبد خرید
-![سبد خرید]({{ asset('images/screenshots/cart.png') }})
-
-### داشبورد ادمین
-![داشبورد ادمین]({{ asset('images/screenshots/admin-dashboard.png') }})
-
----
-
-## 🗂️ ساختار پروژه
+تصاویر این پروژه در مسیر زیر قرار دارند:
 
 ```
-laravel-shop/
-├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   │   ├── Admin/
-│   │   │   │   ├── DashboardController.php
-│   │   │   │   ├── OrderController.php
-│   │   │   │   ├── ProductController.php
-│   │   │   │   └── ReviewController.php
-│   │   │   ├── CartController.php
-│   │   │   ├── OrderController.php
-│   │   │   ├── PaymentController.php
-│   │   │   ├── ProductController.php
-│   │   │   ├── ReviewController.php
-│   │   │   └── UserOrderController.php
-│   │   └── Models/
-│   │       ├── Category.php
-│   │       ├── Coupon.php
-│   │       ├── Order.php
-│   │       ├── OrderItem.php
-│   │       ├── Product.php
-│   │       ├── ProductImage.php
-│   │       ├── Review.php
-│   │       └── User.php
-├── database/
-│   ├── migrations/
-│   └── seeders/
-├── resources/
-│   └── views/
-│       ├── admin/
-│       │   ├── dashboard.blade.php
-│       │   ├── orders/
-│       │   ├── products/
-│       │   └── reviews/
-│       ├── layouts/
-│       │   └── layout.blade.php
-│       ├── products/
-│       │   ├── index.blade.php
-│       │   └── show.blade.php
-│       ├── cart.blade.php
-│       ├── checkout.blade.php
-│       └── user/
-│           └── orders.blade.php
-├── public/
-│   └── images/
-├── routes/
-│   └── web.php
-├── .env
-├── composer.json
-├── package.json
-└── README.md
+public/images/screenshots/
 ```
 
 ---
@@ -167,9 +104,9 @@ laravel-shop/
 اگر می‌خواهید در بهبود این پروژه مشارکت کنید، خوشحال می‌شویم!
 
 1. Fork کنید
-2. Branch جدید بسازید (`git checkout -b feature/AmazingFeature`)
-3. Commit کنید (`git commit -m 'Add some AmazingFeature'`)
-4. Push کنید (`git push origin feature/AmazingFeature`)
+2. Branch جدید بسازید
+3. Commit کنید
+4. Push کنید
 5. Pull Request ارسال کنید
 
 ---
@@ -180,9 +117,13 @@ laravel-shop/
 
 ---
 
-## 🌟 تشکر
+## 🙏 تشکر و قدردانی
 
-از همه‌ی کسانی که در این مسیر همراه من بودند، مخصوصاً تیم لاراول و جامعه‌ی برنامه‌نویسی ایران.
+از همه‌ی کسانی که در این مسیر همراه من بودند، مخصوصاً:
+
+- **تیم لاراول** برای ساخت این فریمورک فوق‌العاده
+- **جامعه‌ی برنامه‌نویسی ایران** برای حمایت و همکاری
+- **همه‌ی کسانی که این پروژه را مطالعه می‌کنند**
 
 ---
 
