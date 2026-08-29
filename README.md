@@ -17,9 +17,7 @@
 - ✅ **گالری تصاویر** برای محصولات (چندین عکس)
 - ✅ **داشبورد ادمین** با آمار فروش
 - ✅ **پرداخت آزمایشی** (بدون درگاه)
-- ✅ **اسلایدر** در صفحه اصلی
 - ✅ **تاریخ شمسی** (با پکیج jalali)
-- ✅ **رابط کاربری زیبا** با بوت‌استرپ
 
 ---
 
@@ -29,7 +27,6 @@
 - **PHP 8.2**
 - **SQLite** (قابل تغییر به MySQL)
 - **Bootstrap 5**
-- **Swiper** (اسلایدر)
 - **Laravel Breeze** (احراز هویت)
 - **morilog/jalali** (تاریخ شمسی)
 
@@ -86,17 +83,17 @@ php artisan serve
 
 ## 📸 تصاویر
 
-### صفحه اصلی با اسلایدر
-![صفحه اصلی](https://via.placeholder.com/800x400?text=صفحه+اصلی+با+اسلایدر)
+### صفحه اصلی
+![صفحه اصلی]({{ asset('images/screenshots/home.png') }})
 
 ### مدیریت محصولات
-![مدیریت محصولات](https://via.placeholder.com/800x400?text=مدیریت+محصولات)
+![مدیریت محصولات]({{ asset('images/screenshots/admin-products.png') }})
 
 ### سبد خرید
-![سبد خرید](https://via.placeholder.com/800x400?text=سبد+خرید)
+![سبد خرید]({{ asset('images/screenshots/cart.png') }})
 
 ### داشبورد ادمین
-![داشبورد ادمین](https://via.placeholder.com/800x400?text=داشبورد+ادمین)
+![داشبورد ادمین]({{ asset('images/screenshots/admin-dashboard.png') }})
 
 ---
 
